@@ -1,4 +1,4 @@
-# Self-assessment
+# Self-assessment for Karmada
 
 ## Table of contents
 
@@ -23,9 +23,9 @@ A table at the top for quick reference information, later used for indexing.
 
 |   |  |
 | -- | -- |
-| Software | A link to the software’s repository.  |
-| Security Provider | Yes or No. Is the primary function of the project to support the security of an integrating system?  |
-| Languages | languages the project is written in |
+| Software | [A link to Karmada’s repository.](https://github.com/karmada-io/karmada)  |
+| Security Provider | No. The primary function of the project is to run cloud-native applications across multiple Kubernetes clusters and clouds, with no changes to the applications. Security is not the primary objective. |
+| Languages | Go, Shell and others |
 | SBOM | Software bill of materials.  Link to the libraries, packages, versions used by the project, may also include direct dependencies. |
 | | |
 
@@ -84,19 +84,19 @@ an arbitrarily large amount of data, possibly incurring financial cost or overwh
 
 ## Self-assessment use
 
-This self-assessment is created by the [project] team to perform an internal analysis of the
-project's security.  It is not intended to provide a security audit of [project], or
-function as an independent assessment or attestation of [project]'s security health.
+This self-assessment is created by the Karmada team to perform an internal analysis of the
+project's security.  It is not intended to provide a security audit of Karmada, or
+function as an independent assessment or attestation of Karmada's security health.
 
-This document serves to provide [project] users with an initial understanding of
-[project]'s security, where to find existing security documentation, [project] plans for
-security, and general overview of [project] security practices, both for development of
-[project] as well as security of [project].
+This document serves to provide Karmada users with an initial understanding of
+Karmada's security, where to find existing security documentation, Karmada plans for
+security, and general overview of Karmada security practices, both for development of
+Karmada as well as security of Karmada.
 
-This document provides the CNCF TAG-Security with an initial understanding of [project]
+This document provides the CNCF TAG-Security with an initial understanding of Karmada
 to assist in a joint-assessment, necessary for projects under incubation.  Taken
 together, this document and the joint-assessment serve as a cornerstone for if and when
-[project] seeks graduation and is preparing for a security audit.
+Karmada seeks graduation and is preparing for a security audit.
 
 ## Security functions and features
 
