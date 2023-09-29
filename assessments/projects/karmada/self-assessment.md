@@ -24,7 +24,7 @@ A table at the top for quick reference information, later used for indexing.
 |   |  |
 | -- | -- |
 | Software | [A link to Karmada’s repository.](https://github.com/karmada-io/karmada)  |
-| Security Provider | No. The primary function of the project is to run cloud-native applications across multiple Kubernetes clusters and clouds, with no changes to the applications. Security is not the primary objective. |
+| Security Provider | No. The primary function of the project is to run Kubernetes clusters across clouds. Security is not the primary objective. |
 | Languages | Go, Shell and others |
 | SBOM | Software bill of materials.  Link to the libraries, packages, versions used by the project, may also include direct dependencies. |
 | | |
@@ -39,10 +39,10 @@ use the table below as an example:
 | Default and optional configs | https://example.org/config |
 
 ## Overview
+Karmada (Kubernetes Armada) 
+Karmada is a Kubernetes clusters management system that enables you to run multiple Kubernetes clusters across clouds. It uses Kubernetes-native APIs and provides advanced scheduling capabilitie supports multi-cloud Kubernetes.
 
-One or two sentences describing the project -- something memorable and accurate
-that distinguishes your project to quickly orient readers who may be assessing
-multiple projects.
+Karmada aims to provide turnkey automation for multi-cluster application management in multi-cloud and hybrid cloud scenarios, with key features such as centralized multi-cloud management, high availability, failure recovery, and traffic scheduling.
 
 ### Background
 
