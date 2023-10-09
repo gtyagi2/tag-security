@@ -161,6 +161,14 @@ be in scope (e.g., Flibble does not intend to stop a party with a key from stori
 an arbitrarily large amount of data, possibly incurring financial cost or overwhelming
  the servers)
 
+**General**
+
+* TBD
+
+**Security**
+* Stop a third-party with an API key from accessing Karmada Control Plane.
+* Prevent a malicious actor using Kubernetes vulnerabilites to exploit the Karmada.
+
 ## Self-assessment use
 
 This self-assessment is created by the Karmada team to perform an internal analysis of the
