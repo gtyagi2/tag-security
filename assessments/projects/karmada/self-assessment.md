@@ -35,8 +35,8 @@ Provide the list of links to existing security documentation for the project. Yo
 use the table below as an example:
 | Doc | url |
 | -- | -- |
-| Security file | https://my.security.file |
-| Default and optional configs | https://example.org/config |
+| Security file | TBD - https://my.security.file |
+| Default and optional configs | TBD - https://example.org/config |
 
 ## Overview
 Karmada (Kubernetes Armada) 
@@ -62,6 +62,16 @@ between the database and front-end is not relevant.
 The means by which actors are isolated should also be described, as this is often
 what prevents an attacker from moving laterally after a compromise.
 
+The following are the Actors found in the Karmada project:
+
+1. Users
+2. Karmada CLI
+3. Karmada API Server
+4. Karmada Controller Manager
+5. Karmada Agent
+6. Karmada Scheduler
+7. Member Cluster
+
 ### Actions
 These are the steps that a project performs in order to provide some service
 or functionality.  These steps are performed by different actors in the system.
@@ -73,6 +83,44 @@ For example, the access server receives the client request, checks the format,
 validates that the request corresponds to a file the client is authorized to 
 access, and then returns a token to the client.  The client then transmits that 
 token to the file server, which, after confirming its validity, returns the file.
+
+#### Push Mode
+In Push mode, the Karmada control plane (Karmada Controller Manager) directly accesses the kube-apiserver of each member cluster to get status and deploy manifests. The karmada-agent is not required.
+
+##### Actors
+* User - Executes Karmada CLI to join/unregister clusters.
+* Karmada CLI - CLI tool that calls Karmada control plane (Karmada Controller Manager) API to join/unregister clusters.
+* Karmada Controller Manager - Creates/updates/deletes Cluster object representing the registered cluster.
+* Member cluster - Its kube-apiserver is directly accessed by Karmada control plane (Karmada Controller Manager).
+
+##### Workflow
+1. User executes kubectl-karmada join to register a cluster.
+2. The CLI calls Karmada control plane API to create Cluster object.
+3. Karmada control plane directly interacts with cluster's kube-apiserver for status and manifest deployment.
+4. User executes kubectl-karmada unjoin to unregister the cluster.
+5. The CLI calls Karmada control plane API to delete Cluster object.
+
+In summary, Karmada control plane (Karmada Controller Manager) will access member cluster's kube-apiserver directly to get cluster status and deploy manifests.
+
+#### Pull Mode
+In Pull mode, the Karmada control plane (Karmada Controller Manager) does not directly access the member cluster. Instead, access is delegated to the Karmada Agent component deployed on each cluster.
+
+##### Actors
+* User - Executes Karmada CLI to join/unregister clusters.
+* Karmada CLI - CLI tool that calls Karmada control plane API to register clusters. Also deploys karmada-agent.
+* Karmada Controller Manager - Creates/deletes Cluster object representing registered cluster. Does not directly access cluster.
+* Karmada Agent - Agent deployed on each cluster that handles communication with Karmada.
+* Member Cluster - Its API server is accessed by the karmada-agent, not directly by Karmada.
+
+##### Workflow
+1. User executes karmadactl register to deploy karmada-agent and register a cluster.
+2. CLI calls Karmada API to create Cluster object and deploy karmada-agent.
+3. Agent creates ServiceAccount and RoleBinding for API access.
+4. Agent watches karmada-es namespace and reports status to Karmada.
+5. User executes karmadactl unregister to delete karmada-agent.
+6. User manually deletes Cluster object from Karmada.
+
+In summary, Karmada control plane (Karmada Controller Manager) will access Karmada Agent component deployed on each cluster to get cluster status and deploy manifests.
 
 ### Goals
 The intended goals of the projects including the security guarantees the project
