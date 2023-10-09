@@ -142,6 +142,19 @@ The intended goals of the projects including the security guarantees the project
  is meant to provide (e.g., Flibble only allows parties with an authorization
 key to change data it stores).
 
+**General**
+
+* Scalability: Support Horizontoal and vertical scaling of applications smoothly across clusters.
+* Centralized Management: Provide a unified control plane to manage multiple Kubernetes clusters deployed across different platforms like on-prem, public clouds, edge, etc.
+* Open and Neutral: Kubernetes native API compatible and integrates with mainstream cloud providers.
+
+**Security**
+
+* At deployment time, karmada data should be protected and robust against tampering.
+* Authentication and authorization for API access to Karmada control plane components like the API server.
+* Validating identity of member clusters joining Karmada control plane.
+* Protect control plane from being compromised and it's identity should be checked by member clusters before processing on the request.
+
 ### Non-goals
 Non-goals that a reasonable reader of the project’s literature could believe may
 be in scope (e.g., Flibble does not intend to stop a party with a key from storing
