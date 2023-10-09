@@ -72,6 +72,21 @@ The following are the Actors found in the Karmada project:
 6. Karmada Scheduler
 7. Member Cluster
 
+#### Karmada API Server
+The aggregate API server is an extended API server implemented using Kubernetes API Aggregation Layer technology. It offers Cluster API and related sub-resources, such as cluster/status and cluster/proxy, it implements advanced capabilities like Aggregated Kubernetes API which can be used to access member clusters through karmada-apiserver.
+
+#### Karmada Controller Manager
+The karmada-controller-manager runs various custom controller processes.
+The controllers watch Karmada objects and then talk to the underlying clusters' API servers to create regular Kubernetes resources.
+The controllers are listed at Karmada Controllers.
+
+#### Karmada Agent
+Karmada has two Cluster Registration Mode such as Push and Pull, karmada-agent shall be deployed on each Pull mode member cluster. It can register a specific cluster to the Karmada control plane and sync manifests from the Karmada control plane to the member cluster. In addition, it also syncs the status of member cluster and manifests to the Karmada control plane.
+
+#### Karmada Scheduler
+The karmada-scheduler is responsible for scheduling k8s native API resource objects (including CRD resources) to member clusters.
+The scheduler determines which clusters are valid placements for each resource in the scheduling queue according to constraints and available resources. The scheduler then ranks each valid cluster and binds the resource to the most suitable cluster.
+
 ### Actions
 These are the steps that a project performs in order to provide some service
 or functionality.  These steps are performed by different actors in the system.
