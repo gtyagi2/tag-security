@@ -64,7 +64,7 @@ what prevents an attacker from moving laterally after a compromise.
 
 The following are the Actors found in the Karmada project:
 
-1. Users
+1. Karmada Admin/ User
 2. Karmada CLI
 3. Karmada API Server
 4. Karmada Controller Manager
@@ -72,11 +72,18 @@ The following are the Actors found in the Karmada project:
 6. Karmada Scheduler
 7. Member Cluster
 
+#### Karmada Control Plane
+The Karmada Control Plane consists of:
+* Karmada API Server
+* Karmada Controller Manager
+* Karmada Scheduler
+* etcd
+
 #### Karmada API Server
 The aggregate API server is an extended API server implemented using Kubernetes API Aggregation Layer technology. It offers Cluster API and related sub-resources, such as cluster/status and cluster/proxy, it implements advanced capabilities like Aggregated Kubernetes API which can be used to access member clusters through karmada-apiserver.
 
 #### Karmada Controller Manager
-The karmada-controller-manager runs various custom controller processes.
+The karmada-controller-manager runs various controller processes.
 The controllers watch Karmada objects and then talk to the underlying clusters' API servers to create regular Kubernetes resources.
 The controllers are listed at Karmada Controllers.
 
@@ -100,22 +107,22 @@ access, and then returns a token to the client.  The client then transmits that
 token to the file server, which, after confirming its validity, returns the file.
 
 #### Push Mode
-In Push mode, the Karmada control plane (Karmada Controller Manager) directly accesses the kube-apiserver of each member cluster to get status and deploy manifests. The karmada-agent is not required.
+In Push mode, the Karmada control plane directly accesses the kube-apiserver of each member cluster to get status and deploy manifests. The karmada-agent is not required.
 
 ##### Actors
 * User - Executes Karmada CLI to join/unregister clusters.
-* Karmada CLI - CLI tool that calls Karmada control plane (Karmada Controller Manager) API to join/unregister clusters.
-* Karmada Controller Manager - Creates/updates/deletes Cluster object representing the registered cluster.
+* Karmada CLI - CLI tool that calls Karmada control plane to join/unregister clusters.
+* Karmada control plane - Creates/updates/deletes Cluster object representing the registered cluster.
 * Member cluster - Its kube-apiserver is directly accessed by Karmada control plane (Karmada Controller Manager).
 
 ##### Workflow
 1. User executes kubectl-karmada join to register a cluster.
-2. The CLI calls Karmada control plane API to create Cluster object.
-3. Karmada control plane directly interacts with cluster's kube-apiserver for status and manifest deployment.
+2. The CLI calls Karmada control plane to create Cluster object.
+3. Within Karmada control plane directly interacts with cluster's kube-apiserver for status and manifest deployment.
 4. User executes kubectl-karmada unjoin to unregister the cluster.
 5. The CLI calls Karmada control plane API to delete Cluster object.
 
-In summary, Karmada control plane (Karmada Controller Manager) will access member cluster's kube-apiserver directly to get cluster status and deploy manifests.
+In summary, Karmada control plane will access member cluster's kube-apiserver directly to get cluster status and deploy manifests.
 
 #### Pull Mode
 In Pull mode, the Karmada control plane (Karmada Controller Manager) does not directly access the member cluster. Instead, access is delegated to the Karmada Agent component deployed on each cluster.
@@ -135,7 +142,7 @@ In Pull mode, the Karmada control plane (Karmada Controller Manager) does not di
 5. User executes karmadactl unregister to delete karmada-agent.
 6. User manually deletes Cluster object from Karmada.
 
-In summary, Karmada control plane (Karmada Controller Manager) will access Karmada Agent component deployed on each cluster to get cluster status and deploy manifests.
+In summary, Karmada control plane will access Karmada Agent component deployed on each cluster to get cluster status and deploy manifests.
 
 ### Goals
 The intended goals of the projects including the security guarantees the project
@@ -184,6 +191,7 @@ This document provides the CNCF TAG-Security with an initial understanding of Ka
 to assist in a joint-assessment, necessary for projects under incubation.  Taken
 together, this document and the joint-assessment serve as a cornerstone for if and when
 Karmada seeks graduation and is preparing for a security audit.
+
 
 ## Security functions and features
 
