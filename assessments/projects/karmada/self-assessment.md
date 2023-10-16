@@ -11,7 +11,7 @@
   * [Goals](#goals)
   * [Non-goals](#non-goals)
 * [Self-assessment use](#self-assessment-use)
-  * [Threat Modeling with STRIDE] (#threat-modeling-with-STRIDE)
+  * [Threat Modeling with STRIDE]([#threat-modeling-with-STRIDE])
 * [Security functions and features](#security-functions-and-features)
 * [Project compliance](#project-compliance)
 * [Secure development practices](#secure-development-practices)
