@@ -26,8 +26,8 @@ A table at the top for quick reference information, later used for indexing.
 | -- | -- |
 | Software | [A link to Karmada’s repository.](https://github.com/karmada-io/karmada)  |
 | Security Provider | No. The primary function of the project is to run Kubernetes clusters across clouds. Security is not the primary objective. |
-| Languages | Go, Shell and others |
-| SBOM | Software bill of materials.  Link to the libraries, packages, versions used by the project, may also include direct dependencies. |
+| Languages |<ul><li>Go</li><li>Shell</li><li>Smarty</li><li>Mustache</li><li>Makefile</li><li>Dockerfile</li></ul> |
+| SBOM | SBOM generated using FOSSA-cli tool on the latest code base. [Link to SBOM](https://github.com/Rana-KV/tag-security/blob/main/assessments/projects/karmada/docs/Karmada_SBOM_cyclonedx.bom.json) |
 | | |
 
 ### Security links
@@ -36,7 +36,7 @@ Provide the list of links to existing security documentation for the project. Yo
 use the table below as an example:
 | Doc | url |
 | -- | -- |
-| Security file | TBD - https://my.security.file |
+| Security file | [SECURITY.md](https://github.com/karmada-io/community/blob/main/security-team/SECURITY.md) |
 | Default and optional configs | TBD - https://example.org/config |
 
 ## Overview
