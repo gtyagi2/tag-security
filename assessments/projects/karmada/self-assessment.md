@@ -346,15 +346,16 @@ Flibber encryption by default.)
 
 ## Security issue resolution
 
-* Responsible Disclosures Process. A outline of the project's responsible
-  disclosures process should suspected security issues, incidents, or
-vulnerabilities be discovered both external and internal to the project. The
-outline should discuss communication methods/strategies.
-  * Vulnerability Response Process. Who is responsible for responding to a
-    report. What is the reporting process? How would you respond?
-* Incident Response. A description of the defined procedures for triage,
-  confirmation, notification of vulnerability or security incident, and
-patching/update availability.
+### Responsible Disclosures Process
+
+* The Karmada project's responsible disclosures process is documented in [Karmada's Security Policy](https://github.com/karmada-io/community/blob/main/security-team/SECURITY.md)
+* Security researchers can report vulnerabilities confidentially by emailing [cncf-karmada-security@lists.cncf.io](mailto:cncf-karmada-security@lists.cncf.io).
+* Reporters can expect a response from Karmada project maintainers within 2 business days acknowledging receipt. It is the maintainers' responsibility to triage the severity of issues and determine remediation plans.
+* The Karmada project maintains release branches for the most recent three minor releases. Applicable fixes, including security fixes, may be backported to those three release branches, depending on severity and feasibility.
+
+### Incident Response
+
+TBD Not discussed.
 
 ## Appendix
 
