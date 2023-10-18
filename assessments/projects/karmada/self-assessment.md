@@ -322,27 +322,44 @@ included in threat modeling.
 
 ## Project compliance
 
-* Compliance.  List any security standards or sub-sections the project is
-  already documented as meeting (PCI-DSS, COBIT, ISO, GDPR, etc.).
+* Karmada does not currently document meeting particular compliance standards.
 
 ## Secure development practices
+Karmada has achieved the passing level criteria in Open Source Security Foundation (OpenSSF) best practices badge [Karmada's CII Best Practices assessment](https://www.bestpractices.dev/en/projects/5301).
 
-* Development Pipeline.  A description of the testing and assessment processes that
-  the software undergoes as it is developed and built. Be sure to include specific
-information such as if contributors are required to sign commits, if any container
-images immutable and signed, how many reviewers before merging, any automated checks for
-vulnerabilities, etc.
-* Communication Channels. Reference where you document how to reach your team or
-  describe in corresponding section.
-  * Internal. How do team members communicate with each other?
-  * Inbound. How do users or prospective users communicate with the team?
-  * Outbound. How do you communicate with your users? (e.g. flibble-announce@
-    mailing list)
-* Ecosystem. How does your software fit into the cloud native ecosystem?  (e.g.
-  Flibber is integrated with both Flocker and Noodles which covers
-virtualization for 80% of cloud users. So, our small number of "users" actually
-represents very wide usage across the ecosystem since every virtual instance uses
-Flibber encryption by default.)
+### Development Pipeline
+
+All code is maintained in [GitHub](https://github.com/kubeedge/kubeedge) and changes must be reviewed by maintainers.
+* All source code is publicly available in Github.
+* Code changes are submitted via Pull Requests (PRs).
+* Commits to the `master` branch directly are via PRs.
+* Once your pull request has been opened it will be assigned to one or more reviewers.
+* Merging happens automatically after both a Reviewer and Approver have approved the PR. 
+* Automated testing is employed extensively throughout all code bases.
+* All pull requests trigger jobs that perform:
+  * Linting
+  * Unit tests
+  * E2E tests
+  * FOSSA
+  * Image scanning for vulnerabilities
+  * Push the latest code to Dockerhub
+ 
+
+### Communication Channels
+
+**Internal**
+
+Team members communicate with each other through the [Karmada Community Slack](https://cloud-native.slack.com/archives/C02MUF8QXUN), [Github issues](https://github.com/karmada-io/karmada/issues) or [Zoom meetings](https://zoom.com/my/karmada).
+
+
+**Inbound**
+
+Users communicate with the team through the [Karmada Community Slack](https://cloud-native.slack.com/archives/C02MUF8QXUN) or [Github issues](https://github.com/karmada-io/karmada/issues).
+
+
+**Outbound**
+
+Team members communicate with users through the [emailing list](https://groups.google.com/forum/#!forum/karmada).
 
 ## Security issue resolution
 
@@ -362,10 +379,8 @@ TBD Not discussed.
 * Known Issues Over Time. List or summarize statistics of past vulnerabilities
   with links. If none have been reported, provide data, if any, about your track
 record in catching issues in code review or automated testing.
-* [CII Best Practices](https://www.coreinfrastructure.org/programs/best-practices-program/).
-  Best Practices. A brief discussion of where the project is at
-  with respect to CII best practices and what it would need to
-  achieve the badge.
+* [CII Best Practices](https://www.coreinfrastructure.org/programs/best-practices-program/).<br>
+  The Karmada project has achieved the passing level criteria and is in the process of working towards attaining a silver badge in Open Source Security Foundation (OpenSSF) best practices badge [Karmada's openssf best practices](https://www.bestpractices.dev/en/projects/5301).
 * Case Studies. Provide context for reviewers by detailing 2-3 scenarios of
   real-world use cases.
 * Related Projects / Vendors. Reflect on times prospective users have asked
