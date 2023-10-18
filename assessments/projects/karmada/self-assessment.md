@@ -40,15 +40,12 @@ use the table below as an example:
 | Default and optional configs | TBD - https://example.org/config |
 
 ## Overview
-Karmada (Kubernetes Armada) 
+**Karmada (Kubernetes Armada)** <br>
 Karmada is a Kubernetes clusters management system that enables you to run multiple Kubernetes clusters across clouds. It uses Kubernetes-native APIs and provides advanced scheduling capabilitie supports multi-cloud Kubernetes.
 
 Karmada aims to provide turnkey automation for multi-cluster application management in multi-cloud and hybrid cloud scenarios, with key features such as centralized multi-cloud management, high availability, failure recovery, and traffic scheduling.
 
 ### Background
-
-Provide information for reviewers who may not be familiar with your project's
-domain or problem area.
 When a development team utilizes Kubernetes for cluster deployment, they often encounter limitations on the number of pods that can be effectively deployed and managed. These limitations can be imposed by the cloud platform's constraints or available resources. Consequently, the development team is compelled to set up and manage multiple Kubernetes clusters. These clusters may serve specific purposes, such as catering to different regions, accommodating various application versions, or handling load balancing requirements. There exist numerous motivations for scaling instances both horizontally and vertically. However, this scaling endeavor brings with it a set of challenges and complexities that must be addressed.
 
 Karmada addresses the challenge of managing clusters across diverse platforms. It offers centralized management of Kubernetes clusters deployed across different cloud platforms and regions, streamlining the management process.
@@ -396,5 +393,19 @@ Many organisations have adopted Karmada and are using our project in production 
  
 
 * **Related Projects / Vendors** <br>
-Reflect on times prospective users have asked about the differences between your project and projectX. Reviewers will have
-the same question.
+  * **KubeFed** project allowed users to coordinate the configuration of multiple Kubernetes clusters from a single set of APIs in a hosting cluster.
+    * **Impediments to wider KubeFed adoption:**
+      * KubeFed was an early answer to the issue of centralized management of multiple Kubernetes clusters– but as community engagement has slowed with the project since 2020, it’s now reached its EOL, leaving many searching for alternatives.
+      * Incompatibility of Kubernetes APIs – the federated-resources API results in extra learning and adoption efforts when users migrate from single cluster to multi-cluster architecture.
+      * Lack of extensibility – users were unable to satisfy varying use cases with the rigid nature of KubeFed. This led to an explosion of highly diverged forks and made it hard to build a community around a standardized implementation.
+  * **Open Cluster Management (OCM)** provides a framework to enable any capability within the Kubernetes ecosystem to orchestrate itself across multiple clusters and cloud providers. The built-in primitives allow an understanding of cluster inventory, cluster workload placement, and cluster workload distribution. The hub-agent model of OCM allows for new kinds of agent behavior to be injected into managed clusters easily. New behaviors can further configure clusters or collect information about clusters (such as observability data or search indexing). The project also provides two multicluster capabilities out of the box: application delivery, orchestration, and policy-based governance.
+    * **Difference between OCM and Karmada:**
+      * Both projects are ready to take up the challenge of managing fleets of clusters across the hybrid and multi-cloud landscape, but they have different philosophies when it comes to solving it.
+      * Karmada provides a more complete full stack end to end solution.
+      * OCM provides a robust modular framework and APIs that enable other Kubernetes ecosystem projects to integrate with it, to unlock multicluster capabilities.
+    * In the future, there will be many use cases where both Karmada and OCM can be complementary to each other. There is already an ongoing collaboration between both project maintainers in the Kubernetes SIG-Multicluster community to standardize the Work API, which is a project that distributes Kubernetes objects between clusters.
+  * **Istio** <br>
+Istio is a service mesh that provides traffic management, security, and observability features for microservices. It focuses on connecting and managing networks between services. Where as Karmada is a Kubernetes multi-cluster orchestrator. It focuses on deploying and managing workloads across multiple Kubernetes clusters. Even if Karmada can manage several clusters, it does not provide any networking mechanism to make sure that the clusters are linked. In other words, Karmada is an excellent tool to orchestrate deployments across clusters, but you need something else to make sure those clusters can communicate with each other like Istio.
+    * **Key Differences** <br>
+    Istio operates at the network layer, managing traffic between services using sidecar proxies. <br>
+    Karmada works at the workload layer, propagating apps and policies to clusters.
