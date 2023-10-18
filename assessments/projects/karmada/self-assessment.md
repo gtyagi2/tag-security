@@ -347,18 +347,15 @@ All code is maintained in [GitHub](https://github.com/kubeedge/kubeedge) and cha
 
 ### Communication Channels
 
-**Internal**
-
+* **Internal** <br>
 Team members communicate with each other through the [Karmada Community Slack](https://cloud-native.slack.com/archives/C02MUF8QXUN), [Github issues](https://github.com/karmada-io/karmada/issues) or [Zoom meetings](https://zoom.com/my/karmada).
 
 
-**Inbound**
+* **Inbound**  <br>
+Users communicate with the team through the [Karmada Community Slack](https://cloud-native.slack.com/archives/C02MUF8QXUN), [Github issues](https://github.com/karmada-io/karmada/issues) or [Github discussions](https://github.com/karmada-io/karmada/discussions).
 
-Users communicate with the team through the [Karmada Community Slack](https://cloud-native.slack.com/archives/C02MUF8QXUN) or [Github issues](https://github.com/karmada-io/karmada/issues).
 
-
-**Outbound**
-
+* **Outbound** <br>
 Team members communicate with users through the [emailing list](https://groups.google.com/forum/#!forum/karmada).
 
 ## Security issue resolution
@@ -376,13 +373,28 @@ TBD Not discussed.
 
 ## Appendix
 
-* Known Issues Over Time. List or summarize statistics of past vulnerabilities
-  with links. If none have been reported, provide data, if any, about your track
-record in catching issues in code review or automated testing.
-* [CII Best Practices](https://www.coreinfrastructure.org/programs/best-practices-program/).<br>
+* **Known Issues Over Time** <br>
+There are no vulnerabilites disclosed for the Karmada project, but still the project is impacted by the vulnerabilites in the underlying frameworks and tools it uses (for instance vulnerabilites in Golang). All Karmada project security related issues (both fixes and enhancements) are not spearate from the other Github issues.
+* **[CII Best Practices](https://www.coreinfrastructure.org/programs/best-practices-program/)** <br>
   The Karmada project has achieved the passing level criteria and is in the process of working towards attaining a silver badge in Open Source Security Foundation (OpenSSF) best practices badge [Karmada's openssf best practices](https://www.bestpractices.dev/en/projects/5301).
-* Case Studies. Provide context for reviewers by detailing 2-3 scenarios of
-  real-world use cases.
-* Related Projects / Vendors. Reflect on times prospective users have asked
-  about the differences between your project and projectX. Reviewers will have
+* **Case Studies** <br>
+Many organisations have adopted Karmada and are using our project in production [[adopters-list](https://karmada.io/adopters)].<br> Here are few Case studies:
+  * **VIPKID:** VIPKID is an online English education platform with more than 80,000 teachers and 1 million trainees. It has delivered 150 million training sessions across countries and regions. To provide better services, VIPKID deploys applications by region and close to teachers and trainees. Therefore, VIPKID purchased dozens of clusters from multiple cloud providers around the world to build its internal infrastructure.
+    * VIPKID have built a multi-cloud PaaS using Karmada to simplify managing containers across regions and vendors.
+    * Karmada provides application-centric control through override policies.
+    * Karmada enables quick cluster startup and efficient deployments.
+    * Karmada provides  easy integration into their platform and GitOps workflows.
+    * Overall, Karmada helped VIPKID efficiently build a reliable multi-cloud PaaS for running containers globally.
+    * [Full Details on VIPKID Case Study](https://karmada.io/docs/casestudies/vipkid/)
+  * **AIML INSTITUTE:** AIML INSTITUTE helps enterprises build integrated cloud native solutions for digital transformation through their MSP platform. MSP focuses on cloud native, data intelligence, and strong application security/performance to provide tailored services covering development, operations and more on Kubernetes. The platform is cloud vendor independent to meet customer multi-cloud demands while managing increasing clusters and complexity.
+    * Karmada enabled AIML Institute to manage 50+ heterogeneous clusters through unified APIs.
+    * It automated cluster management and integration to reduce complexity.
+    * Karmada provided advanced multi-cluster scheduling for resources.
+    * It enabled config differentiation and state aggregation across clusters.
+    * Karmada integration enabled pipeline inspection system and GPU management to span multiple clusters.
+    * [Full Details on AIML Case Study](https://karmada.io/docs/casestudies/ci123/)
+ 
+
+* **Related Projects / Vendors** <br>
+Reflect on times prospective users have asked about the differences between your project and projectX. Reviewers will have
 the same question.
