@@ -24,11 +24,10 @@ A table at the top for quick reference information, later used for indexing.
 
 |   |  |
 | -- | -- |
-| Software | [A link to Karmada’s repository.](https://github.com/karmada-io/karmada)  |
-| Security Provider | No. The primary function of the project is to run Kubernetes clusters across clouds. Security is not the primary objective. |
-| Languages |<ul><li>Go</li><li>Shell</li><li>Smarty</li><li>Mustache</li><li>Makefile</li><li>Dockerfile</li></ul> |
-| SBOM | SBOM generated using FOSSA-cli tool on the latest code base. [Link to SBOM](https://github.com/Rana-KV/tag-security/blob/main/assessments/projects/karmada/docs/Karmada_SBOM_cyclonedx.bom.json) |
-| | |
+| **Software** | [A link to Karmada’s repository.](https://github.com/karmada-io/karmada)  |
+| **Security Provider** | No. The primary function of the project is to run Kubernetes clusters across clouds. Security is not the primary objective. |
+| **Languages** |<ul><li>Go</li><li>Shell</li><li>Smarty</li><li>Mustache</li><li>Makefile</li><li>Dockerfile</li></ul> |
+| **SBOM** | SBOM generated using **FOSSA-cli** tool on the latest code base. [Link to SBOM](https://github.com/Rana-KV/tag-security/blob/main/assessments/projects/karmada/docs/Karmada_SBOM_cyclonedx.bom.json) |
 
 ### Security links
 
@@ -49,6 +48,11 @@ Karmada aims to provide turnkey automation for multi-cluster application managem
 When a development team utilizes Kubernetes for cluster deployment, they often encounter limitations on the number of pods that can be effectively deployed and managed. These limitations can be imposed by the cloud platform's constraints or available resources. Consequently, the development team is compelled to set up and manage multiple Kubernetes clusters. These clusters may serve specific purposes, such as catering to different regions, accommodating various application versions, or handling load balancing requirements. There exist numerous motivations for scaling instances both horizontally and vertically. However, this scaling endeavor brings with it a set of challenges and complexities that must be addressed.
 
 Karmada addresses the challenge of managing clusters across diverse platforms. It offers centralized management of Kubernetes clusters deployed across different cloud platforms and regions, streamlining the management process.
+<br>
+<div style="text-align:center;">
+  <img src="docs/Karmada-architecture.png" alt="Karmada Architecture">
+</div>
+<br>
 
 ### Actors
 These are the individual parts of your system that interact to provide the 
@@ -59,6 +63,11 @@ between the database and front-end is not relevant.
 
 The means by which actors are isolated should also be described, as this is often
 what prevents an attacker from moving laterally after a compromise.
+<br>
+<div style="text-align:center;">
+  <img src="docs/Karmada-components.png" alt="Karmada components">
+</div>
+<br>
 
 The following are the Actors found in the Karmada project:
 
@@ -75,7 +84,7 @@ The Karmada Control Plane consists of:
 * Karmada API Server
 * Karmada Controller Manager
 * Karmada Scheduler
-* etcd
+* ETCD
 
 #### Karmada API Server
 The aggregate API server is an extended API server implemented using Kubernetes API Aggregation Layer technology. It offers Cluster API and related sub-resources, such as cluster/status and cluster/proxy, it implements advanced capabilities like Aggregated Kubernetes API which can be used to access member clusters through karmada-apiserver.
