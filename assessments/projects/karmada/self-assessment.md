@@ -69,25 +69,25 @@ what prevents an attacker from moving laterally after a compromise.
 </div>
 <br>
 
-The following are the Actors found in the Karmada project:
-
-1. Karmada Admin
-2. Karmada CLI
-3. Karmada API Server
-4. Karmada Controller Manager
-5. Karmada Agent
-6. Karmada Scheduler
-7. Member Cluster
-
-#### Karmada Control Plane
-The Karmada Control Plane consists of:
-* Karmada API Server
-* Karmada Controller Manager
-* Karmada Scheduler
-* ETCD
+The following are the different actors found in Karmada project:
+* Host Cluster
+  1. karmada-admin/karmada-operator
+  2. karmada control plane
+     * karmada-apiserver
+     * karmada-aggregated-apiserver
+     * kube-controller-manager
+     * karmada-controller-manager
+     * karmada-scheduler
+     * karmada-webhook
+     * etcd 
+* Member Cluster
+  1. karmada-agent
+  2. kube-apiserver
 
 #### Karmada API Server
-The aggregate API server is an extended API server implemented using Kubernetes API Aggregation Layer technology. It offers Cluster API and related sub-resources, such as cluster/status and cluster/proxy, it implements advanced capabilities like Aggregated Kubernetes API which can be used to access member clusters through karmada-apiserver.
+The API server is a component of the Karmada control plane that exposes the Karmada API in addition to the Kubernetes API. The API server is the front end of the Karmada control plane.
+
+Karmada API server directly uses the implementation of kube-apiserver from Kubernetes, which is the reason why Karmada is naturally compatible with Kubernetes API. That makes integration with the Kubernetes ecosystem very simple for Karmada, such as allowing users to use kubectl to operate Karmada, integrating with ArgoCD, integrating with Flux and so on.
 
 #### Karmada Controller Manager
 The karmada-controller-manager runs various controller processes.
@@ -164,10 +164,10 @@ key to change data it stores).
 
 **Security**
 
-* At deployment time, karmada data should be protected and robust against tampering.
-* Authentication and authorization for API access to Karmada control plane components like the API server.
-* Validating identity of member clusters joining Karmada control plane.
-* Protect control plane from being compromised and it's identity should be checked by member clusters before processing on the request.
+* Karmada project elements should be protected and robust against tampering.
+* Authenticating and authorizating access to karmada control plane components.
+* Protect karmada control plane from being compromised.
+* Protect karmada control plane's identity.
 
 ### Non-goals
 Non-goals that a reasonable reader of the project’s literature could believe may
@@ -177,11 +177,15 @@ an arbitrarily large amount of data, possibly incurring financial cost or overwh
 
 **General**
 
-* TBD
+* Maintaining and montioring the image registry.
+* Managing and montioring Host Server and Host OS services.
 
 **Security**
-* Stop a third-party with an API key from accessing Karmada Control Plane.
-* Prevent a malicious actor using Kubernetes vulnerabilites to exploit the Karmada.
+* Access control of image registry.
+* Scanning images in image registry for vulnerabilites.
+* Storage and access control of access tokens to karmada control plane.
+* Stop anyone with valid access token from accessing karmada control plane.
+* Address security issues of extensions or tools used with Karmada.
 
 ## Self-assessment use
 
@@ -264,9 +268,9 @@ Team members communicate with users through the [emailing list](https://groups.g
 * Reporters can expect a response from Karmada project maintainers within 2 business days acknowledging receipt. It is the maintainers' responsibility to triage the severity of issues and determine remediation plans.
 * The Karmada project maintains release branches for the most recent three minor releases. Applicable fixes, including security fixes, may be backported to those three release branches, depending on severity and feasibility.
 
-### Incident Response
+### Incident Response Process
 
-TBD Not discussed.
+As data is not being collected from the users and the Incident Response process would be intiated only through a vulnerability disclosure and follows the [Responsible Disclosures Process](#responsible-disclosures-process)
 
 ## Appendix
 
