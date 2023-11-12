@@ -46,7 +46,7 @@ Provide the list of links to existing security documentation for the project. Yo
 use the table below as an example:
 | Doc | url |
 | -- | -- |
-| Security file | https://my.security.file |
+| Security file | https://github.com/rook/rook/blob/master/SECURITY.md |
 | Default and optional configs | https://example.org/config |
 
 ## Overview
