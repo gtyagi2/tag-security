@@ -100,19 +100,19 @@ an arbitrarily large amount of data, possibly incurring financial cost or overwh
 
 ## Self-assessment use
 
-This self-assessment is created by the [project] team to perform an internal analysis of the
-project's security.  It is not intended to provide a security audit of [project], or
-function as an independent assessment or attestation of [project]'s security health.
+This self-assessment is created by the Rook team to perform an internal analysis of the
+project's security.  It is not intended to provide a security audit of Rook, or
+function as an independent assessment or attestation of Rook's security health.
 
-This document serves to provide [project] users with an initial understanding of
-[project]'s security, where to find existing security documentation, [project] plans for
-security, and general overview of [project] security practices, both for development of
-[project] as well as security of [project].
+This document serves to provide Rook users with an initial understanding of
+Rook's security, where to find existing security documentation, Rook plans for
+security, and general overview of Rook security practices, both for development of
+Rook as well as security of Rook.
 
-This document provides the CNCF TAG-Security with an initial understanding of [project]
+This document provides the CNCF TAG-Security with an initial understanding of Rook
 to assist in a joint-assessment, necessary for projects under incubation.  Taken
 together, this document and the joint-assessment serve as a cornerstone for if and when
-[project] seeks graduation and is preparing for a security audit.
+Rook seeks graduation and is preparing for a security audit.
 
 ## Security functions and features
 
