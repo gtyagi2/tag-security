@@ -37,7 +37,7 @@ A table at the top for quick reference information, later used for indexing.
 | Software |  [Rook](https://github.com/rook/rook)  |
 | Security Provider | No  |
 | Languages | Go, Python, C++ |
-| SBOM | [go.mod](https://github.com/rook/rook/blob/master/pkg/apis/go.mod) |
+| SBOM | [go.mod](https://github.com/rook/rook/blob/master/pkg/apis/go.mod) [Build Reqs] (https://github.com/rook/rook/blob/master/INSTALL.md)|
 | | |
 
 ### Security links
