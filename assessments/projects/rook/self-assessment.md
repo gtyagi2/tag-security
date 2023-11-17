@@ -47,7 +47,7 @@ use the table below as an example:
 | Doc | url |
 | -- | -- |
 | Security file | https://github.com/rook/rook/blob/master/SECURITY.md |
-| Default and optional configs | https://example.org/config |
+| Default and optional configs | https://github.com/rook/rook/blob/release-1.12/design/ceph/ceph-config-updates.md |
 
 ## Overview
 
