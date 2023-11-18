@@ -76,7 +76,8 @@ The means by which actors are isolated should also be described, as this is ofte
 what prevents an attacker from moving laterally after a compromise.
 
 - 'rook operator'
-	- 'rook discovery'
+	- 'rook agent'
+	- 'rook discover'
 
 #### 'Rook Operator'
 The Rook operator is a simple container that has all that is needed to bootstrap and monitor the storage cluster. The operator will start and monitor Ceph monitor pods, the Ceph OSD daemons to provide RADOS storage, as well as start and manage other Ceph daemons. The operator manages CRDs for pools, object stores (S3/Swift), and filesystems by initializing the pods and other resources necessary to run the services.
@@ -85,9 +86,11 @@ The operator will monitor the storage daemons to ensure the cluster is healthy. 
 
 Rook automatically configures the Ceph-CSI driver to mount the storage to your pods. The rook/ceph image includes all necessary tools to manage the cluster. Rook is not in the Ceph data path. Many of the Ceph concepts like placement groups and crush maps are hidden so you don't have to worry about them. Instead, Rook creates a simplified user experience for admins that is in terms of physical resources, pools, volumes, filesystems, and buckets. Advanced configuration can be applied when needed with the Ceph tools.
 
-#### 'Rook Discovery'
+#### 'Rook Agents'
+Run on each storage node, configure FlexVolume plugin that integrates with K8s' volume controller. Handle all storage operations, e.g. attaching network storage devices, mounting volumes on the host, and formatting the filesystem
 
-...
+#### 'Rook Discovers'
+Detect storage devices attached to the storage node
 
 ### Actions
 These are the steps that a project performs in order to provide some service
