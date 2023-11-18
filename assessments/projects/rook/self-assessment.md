@@ -79,6 +79,8 @@ what prevents an attacker from moving laterally after a compromise.
 	- 'Ceph CSI Driver'
 	- 'Ceph Daemons'
 
+![Rook Components on Kubernetes](ceph-storage/Rook%20High-Level%20Architecture.png)
+
 #### 'Rook Operator'
 The Rook operator is a simple container that has all that is needed to bootstrap and monitor the storage cluster. The operator will start and monitor Ceph monitor pods, the Ceph OSD daemons to provide RADOS storage, as well as start and manage other Ceph daemons. The operator manages CRDs for pools, object stores (S3/Swift), and filesystems by initializing the pods and other resources necessary to run the services.
 
