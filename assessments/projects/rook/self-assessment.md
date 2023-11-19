@@ -129,7 +129,7 @@ A ReadWriteOnce volume can be mounted on one node at a time.
 
 #### Shared File System Example
 
-In the diagram above, the flow to create a applications with a RWX volume is:
+In the diagram [here](#actors), the flow to create a applications with a RWX volume is:
 
 1. The (purple) app creates a PVC to request storage
 2. The PVC defines the CephFS storage class (sc) for provisioning the storage
@@ -141,6 +141,15 @@ A ReadWriteMany volume can be mounted on multiple nodes for your application to 
 
 #### Block Storage Example
 
+In the diagram [here](#actors), the flow to create an application with access to an S3 bucket is:
+
+- The (orange) app creates an ObjectBucketClaim (OBC) to request a bucket
+- The Rook operator creates a Ceph RGW bucket (via the lib-bucket-provisioner)
+- The Rook operator creates a secret with the credentials for accessing the bucket and a configmap with bucket information
+- The app retrieves the credentials from the secret
+- The app can now read and write to the bucket with an S3 client
+
+A S3 compatible client can use the S3 bucket right away using the credentials (`Secret`) and bucket info (`ConfigMap`).
 
 
 ### Goals
