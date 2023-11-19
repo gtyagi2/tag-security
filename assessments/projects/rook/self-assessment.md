@@ -113,7 +113,7 @@ Rook can be used to automatically configure the Ceph CSI drivers to mount the st
 * Ceph CSI Drivers
 * Ceph Daemons
 
-##### Workflows
+#### Workflows
 
 ##### Block Storage Example
 
