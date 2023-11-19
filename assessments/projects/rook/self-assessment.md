@@ -115,7 +115,7 @@ Rook can be used to automatically configure the Ceph CSI drivers to mount the st
 
 ##### Workflow
 
-#### Block Storage Example
+##### Block Storage Example
 
 In the diagram [here](#actors), the flow to create an application with an RWO volume is:
 
@@ -127,7 +127,7 @@ In the diagram [here](#actors), the flow to create an application with an RWO vo
 
 A ReadWriteOnce volume can be mounted on one node at a time.
 
-#### Shared File System Example
+##### Shared File System Example
 
 In the diagram [here](#actors), the flow to create a applications with a RWX volume is:
 
@@ -139,7 +139,7 @@ In the diagram [here](#actors), the flow to create a applications with a RWX vol
 
 A ReadWriteMany volume can be mounted on multiple nodes for your application to use.
 
-#### Block Storage Example
+##### Block Storage Example
 
 In the diagram [here](#actors), the flow to create an application with access to an S3 bucket is:
 
