@@ -55,7 +55,6 @@ Rook turns distributed storage systems into self-managing, self-scaling, self-he
 
 ### Background
 
-
 Rook is an open source **cloud-native storage orchestrator** for Kubernetes, providing the platform, framework, and support for Ceph storage to natively integrate with Kubernetes.
 
 [Ceph](https://ceph.com/) is a distributed storage system that provides file, block and object storage and is deployed in large scale production clusters.
@@ -105,6 +104,32 @@ For example, the access server receives the client request, checks the format,
 validates that the request corresponds to a file the client is authorized to 
 access, and then returns a token to the client.  The client then transmits that 
 token to the file server, which, after confirming its validity, returns the file.
+
+Rook can be used to automatically configure the Ceph CSI drivers to mount the storage to an application's pods. See image at top of [Actors](#actors) for reference
+
+##### Actors
+
+* Rook Operator
+* Ceph CSI Drivers
+* Ceph Daemons
+
+##### Workflow
+
+#### Block Storage Example
+
+In the diagram [here](#actors), the flow to create an application with an RWO volume is:
+
+1. The (blue) app creates a PVC to request storage
+2. The PVC defines the Ceph RBD storage class (sc) for provisioning the storage
+3. K8s calls the Ceph-CSI RBD provisioner to create the Ceph RBD image.
+4. The kubelet calls the CSI RBD volume plugin to mount the volume in the app
+5. The volume is now available for reads and writes.
+
+#### Shared File System Example
+
+#### Block Storage Example
+
+
 
 ### Goals
 The intended goals of the projects including the security guarantees the project
