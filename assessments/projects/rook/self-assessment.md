@@ -125,7 +125,19 @@ In the diagram [here](#actors), the flow to create an application with an RWO vo
 4. The kubelet calls the CSI RBD volume plugin to mount the volume in the app
 5. The volume is now available for reads and writes.
 
+A ReadWriteOnce volume can be mounted on one node at a time.
+
 #### Shared File System Example
+
+In the diagram above, the flow to create a applications with a RWX volume is:
+
+1. The (purple) app creates a PVC to request storage
+2. The PVC defines the CephFS storage class (sc) for provisioning the storage
+3. K8s calls the Ceph-CSI CephFS provisioner to create the CephFS subvolume
+4. The kubelet calls the CSI CephFS volume plugin to mount the volume in the app
+5. The volume is now available for reads and writes.
+
+A ReadWriteMany volume can be mounted on multiple nodes for your application to use.
 
 #### Block Storage Example
 
