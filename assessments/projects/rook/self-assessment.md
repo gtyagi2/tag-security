@@ -163,7 +163,6 @@ Rook automates deployment and management of Ceph to provide self-managing, self-
 * Rook operator should obey the principle of least privilege (see [here](https://github.com/rook/rook/blob/release-1.12/design/ceph/security-model.md) for planned changes)
 * Ceph storage elements should maintain integrity and availability while scaling
 
-
 ### Non-goals
 
 * Ceph- and K8s-specific vulnerabilities
