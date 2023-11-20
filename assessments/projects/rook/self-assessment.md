@@ -168,6 +168,7 @@ Rook automates deployment and management of Ceph to provide self-managing, self-
 
 * Ceph- and K8s-specific vulnerabilities
 * Vulnerabilities caused by user error
+* Address security issues of extensions or tools used with Rook
 
 ## Self-assessment use
 
