@@ -37,7 +37,7 @@ A table at the top for quick reference information, later used for indexing.
 | Software |  [Rook](https://github.com/rook/rook)  |
 | Security Provider | No  |
 | Languages | Go, Python, C++ |
-| SBOM | [prerequisites](https://github.com/rook/rook/blob/master/Documentation/Getting-Started/Prerequisites/prerequisites.md) [go.mod](https://github.com/rook/rook/blob/master/pkg/apis/go.mod) [Build Reqs](https://github.com/rook/rook/blob/master/INSTALL.md)|
+| SBOM | [prerequisites](https://github.com/rook/rook/blob/master/Documentation/Getting-Started/Prerequisites/prerequisites.md) [go.mod](https://github.com/rook/rook/blob/master/pkg/apis/go.mod) [API go.mod](https://github.com/rook/rook/blob/master/pkg/apis/go.mod) [Build Reqs](https://github.com/rook/rook/blob/master/INSTALL.md)|
 | | |
 
 ### Security links
@@ -59,8 +59,7 @@ Rook is an open source **cloud-native storage orchestrator** for Kubernetes, pro
 
 [Ceph](https://ceph.com/) is a distributed storage system that provides file, block and object storage and is deployed in large scale production clusters.
 
-Rook automates deployment and management of Ceph to provide self-managing, self-scaling, and self-healing storage services.
-The Rook operator does this by building on Kubernetes resources to deploy, configure, provision, scale, upgrade, and monitor Ceph.
+Rook automates deployment and management of Ceph to provide self-managing, self-scaling, and self-healing storage services. The Rook operator does this by building on Kubernetes resources to deploy, configure, provision, scale, upgrade, and monitor Ceph.
 
 The status of the Ceph storage provider is **Stable**. Features and improvements will be planned for many future versions. Upgrades between versions are provided to ensure backward compatibility between releases.
 
@@ -153,15 +152,20 @@ A S3 compatible client can use the S3 bucket right away using the credentials (`
 
 
 ### Goals
-The intended goals of the projects including the security guarantees the project
- is meant to provide (e.g., Flibble only allows parties with an authorization
-key to change data it stores).
+
+####
+Rook automates deployment and management of Ceph to provide self-managing, self-scaling, and self-healing storage services. The Rook operator does this by building on Kubernetes resources to deploy, configure, provision, scale, upgrade, and monitor Ceph.
+
+#### Security Goals
+
+* Access to rook operator should be authenticated and authorized
+* Secrets created by Rook operator should maintain confidentiality
+* Ceph storage elements should maintain integrity and availability while scaling up
+
 
 ### Non-goals
-Non-goals that a reasonable reader of the project’s literature could believe may
-be in scope (e.g., Flibble does not intend to stop a party with a key from storing
-an arbitrarily large amount of data, possibly incurring financial cost or overwhelming
- the servers)
+
+* Ceph-specific vulnerabilities are out of scope beyond applying relevant patches in a timely manner
 
 ## Self-assessment use
 
