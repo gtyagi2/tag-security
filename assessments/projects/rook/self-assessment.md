@@ -161,11 +161,12 @@ Rook automates deployment and management of Ceph to provide self-managing, self-
 * Access to rook operator should be authenticated and authorized
 * Secrets created by Rook operator should maintain confidentiality
 * Ceph storage elements should maintain integrity and availability while scaling up
+* Rook operator should obey the principle of least privilege (see [here](https://github.com/rook/rook/blob/release-1.12/design/ceph/security-model.md) for planned changes)
 
 
 ### Non-goals
 
-* Ceph-specific vulnerabilities are out of scope beyond applying relevant patches in a timely manner
+* Ceph-specific vulnerabilities are out of scope beyond for this project
 
 ## Self-assessment use
 
