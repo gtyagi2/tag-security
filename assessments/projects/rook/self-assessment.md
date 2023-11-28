@@ -210,8 +210,7 @@ The "preserveFilesystemOnDelete" setting governs whether the underlying filesyst
 
 ## Project compliance
 
-* Compliance.  List any security standards or sub-sections the project is
-  already documented as meeting (PCI-DSS, COBIT, ISO, GDPR, etc.).
+There are no security standards or sub-sections the project is already documented as meeting.
 
 ## Secure development practices
 
