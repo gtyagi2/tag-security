@@ -187,15 +187,26 @@ Rook seeks graduation and is preparing for a security audit.
 
 ## Security functions and features
 
-* Critical.  A listing critical security components of the project with a brief
-description of their importance.  It is recommended these be used for threat modeling.
-These are considered critical design elements that make the product itself secure and
-are not configurable.  Projects are encouraged to track these as primary impact items
-for changes to the project.
-* Security Relevant.  A listing of security relevant components of the project with
-  brief description.  These are considered important to enhance the overall security of
-the project, such as deployment configurations, settings, etc.  These should also be
-included in threat modeling.
+### Critical
+#### User ID Mapping through Rook for CephNFS Clusters
+User ID mapping is a critical security component facilitated by Rook for CephNFS clusters. CephNFS allows access to objects stored in Ceph clusters through the Network File System (NFS). Rook ensures secure user domain association, linking user authentication and authorization. By enforcing authentication mechanisms, Rook guarantees that only authorized users with valid credentials can access CephNFS clusters. This measure is crucial in preventing unauthorized data leakage or modifications.
+#### User Authentication between Rook CephNFS Servers and NFS Clients
+Rook leverages Kerberos for user authentication between CephNFS servers and NFS clients. Through the use of configuration files and keytab files, Kerberos establishes a secure connection between the NFS server and the Kerberos server, ensuring authenticated and controlled access. This safeguards against unauthorized access, providing a secure communication channel.
+#### Object Storage Daemon Encryption Capability
+Rook enhances security by providing encryption capabilities for Object Storage Daemons (OSDs). OSDs can be encrypted with keys stored in a Kubernetes Secret or managed by a Key Management System. Rook supports authentication of Key Management Systems through token-based or Vault Kubernetes native authentication, adding an extra layer of security to OSD encryption.
+
+### Security Relevant
+#### Server Side Encryption in Ceph RADOS Gateway
+Ceph RADOS Gateway (RGW), a pivotal component of Ceph storage, offers object storage services with a RESTful API. It supports Server Side Encryption with the flexibility to manage encryption keys either within RGW or through a Key Management System. Users have the autonomy to configure their preferences, empowering them to align encryption practices with their security policies.
+
+#### NFS Cluster Security Specification
+The security configuration of NFS clusters involves a range of customizable settings, including principal name, domain name, Kerberos configuration files, Kerberos keytab file, and System Security Services Daemon (SSSD) settings. Users can fine-tune security parameters such as sidecar image, configuration file, volume source, additional files, debug level for SSSD, and Kubernetes resource requests. This customization capability empowers users to tailor security settings for NFS clusters based on their specific requirements.
+
+#### preservePoolsOnDelete for Object Stores in Pools
+The setting "preservePoolsOnDelete" plays a critical role in determining the fate of pools used to store objects when the objects are deleted. Pools, being repositories of settings and data, are safeguarded from accidental loss. This security measure prevents users from unintentionally losing critical information, enhancing the overall security of the system.
+
+#### preserveFilesystemOnDelete for File Systems in Ceph
+The "preserveFilesystemOnDelete" setting governs whether the underlying filesystem remains intact or is deleted when a Ceph File System (CephFS) is deleted. This security setting acts as a protective measure, ensuring that data is not accidentally or unintentionally lost during filesystem deletion operations. It adds an additional layer of security to prevent data loss incidents.
 
 ## Project compliance
 
