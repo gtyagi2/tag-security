@@ -204,22 +204,66 @@ included in threat modeling.
 
 ## Secure development practices
 
-* Development Pipeline.  A description of the testing and assessment processes that
-  the software undergoes as it is developed and built. Be sure to include specific
-information such as if contributors are required to sign commits, if any container
-images immutable and signed, how many reviewers before merging, any automated checks for
-vulnerabilities, etc.
-* Communication Channels. Reference where you document how to reach your team or
-  describe in corresponding section.
-  * Internal. How do team members communicate with each other?
-  * Inbound. How do users or prospective users communicate with the team?
-  * Outbound. How do you communicate with your users? (e.g. flibble-announce@
-    mailing list)
-* Ecosystem. How does your software fit into the cloud native ecosystem?  (e.g.
-  Flibber is integrated with both Flocker and Noodles which covers
-virtualization for 80% of cloud users. So, our small number of "users" actually
-represents very wide usage across the ecosystem since every virtual instance uses
-Flibber encryption by default.)
+* Development Pipeline.  
+Rook's development pipeline is designed to ensure that the software is robust, reliable, and secure. It involves several stages of testing and assessment as the software is developed and built.
+
+#### Contributor Requirements
+
+Contributors to Rook are required to sign their commits, adhering to the Developer Certificate of Origin (DCO). This practice ensures the integrity of the code by verifying that the changes are made by the person who claims to have made them. Contributors use the Signed-off-by line in commit messages to signify their adherence to these requirements. Git has a -s command-line option to append this automatically to commit messages
+Rook leverages a DCO bot to enforce the DCO on each pull request and branch commits. This bot helps ensure that all contributions are properly signed off.
+Contributors can get started by forking the repository on GitHub, reading the installation document for build and test instructions, and playing with the project 
+
+#### Container Images
+
+The container images used in Rook are immutable, which means they cannot be changed after they are created. This practice enhances the security of the software by preventing unauthorized modifications.
+
+#### Reviewers
+
+Before a commit is merged, it is reviewed by multiple reviewers. This practice helps catch potential security issues early in the development process. The exact number of reviewers required before merging is not specified in the documentation.
+Rook empowers contributors to approve and merge code changes autonomously. The maintainer team does not have sufficient resources to fully review and approve all proposed code changes, so trusted members of the community are given these abilities. The goal of this process is to increase the code velocity of all storage providers and streamline their day-to-day operations, such as pull request approval and merging
+
+#### Automated Checks
+
+Rook includes automated checks for vulnerabilities. These checks are part of Rook's continuous integration (CI) process and automatically run against every pull request. The results of these tests, along with code reviews and other criteria, determine whether a pull request will be accepted into the Rook repository
+
+#### Integration Tests
+
+Rook's upstream continuous integration (CI) tests will run integration tests against your changes automatically. You do not need to run these tests locally, but you may if you like.
+
+
+* Communication Channels.
+  Rook Communication Channels
+
+#### Internal Communication
+- Slack: Join our [slack channel](https://slack.rook.io)
+- GitHub: Start a [discussion](https://github.com/rook/rook/discussions) or open an [issue](https://github.com/rook/rook/issues)
+- Security topics: [cncf-rook-security@lists.cncf.io](#reporting-security-vulnerabilities)
+
+#### Inbound Communication
+
+Users or prospective users communicate with the Rook team through GitHub issues and pull requests. GitHub is a platform that hosts the Rook project's codebase and provides features for tracking changes, managing versions, and collaborating on code. Users can report issues, propose changes, or contribute to the project by submitting pull requests.
+- GitHub: Start a [discussion](https://github.com/rook/rook/discussions) or open an [issue](https://github.com/rook/rook/issues)
+
+#### Outbound Communication
+- Twitter: [@rook_io](https://twitter.com/rook_io)
+Mailing lists
+* [cncf-rook-security@lists.cncf.io](mailto:cncf-rook-security@lists.cncf.io): for any security concerns. Received by Product Security Team members, and used by this Team to discuss security issues and fixes.
+* [cncf-rook-distributors-announce@lists.cncf.io](mailto:cncf-rook-distributors-announce@lists.cncf.io): for
+  early private information on Security patch releases.
+  
+Community Meeting
+
+A regular community meeting takes place every other [Tuesday at 9:00 AM PT (Pacific Time)](https://zoom.us/j/392602367?pwd=NU1laFZhTWF4MFd6cnRoYzVwbUlSUT09).
+Convert to your [local timezone](http://www.thetimezoneconverter.com/?t=9:00&tz=PT%20%28Pacific%20Time%29).
+
+Any changes to the meeting schedule will be added to the [agenda doc](https://docs.google.com/document/d/1exd8_IG6DkdvyA0eiTtL2z5K2Ra-y68VByUUgwP7I9A/edit?usp=sharing) and posted to [Slack #announcements](https://rook-io.slack.com/messages/C76LLCEE7/).
+
+Anyone who wants to discuss the direction of the project, design and implementation reviews, or general questions with the broader community is welcome and encouraged to join.
+
+- Meeting link: <https://zoom.us/j/392602367?pwd=NU1laFZhTWF4MFd6cnRoYzVwbUlSUT09>
+- [Current agenda and past meeting notes](https://docs.google.com/document/d/1exd8_IG6DkdvyA0eiTtL2z5K2Ra-y68VByUUgwP7I9A/edit?usp=sharing)
+- [Past meeting recordings](https://www.youtube.com/playlist?list=PLP0uDo-ZFnQP6NAgJWAtR9jaRcgqyQKVy)
+
 
 ## Security issue resolution
 
